@@ -1,6 +1,6 @@
 {
   "pkg": "@superfluido/design",
-  "projectId": "6a0e7e54-d566-4e98-884b-e5529b62b4f4",
+  "projectId": "f2e317f8-8470-42eb-9e24-76eefdf5ada8",
   "shape": "package",
   "globalName": "SuperfluidoDesign",
   "buildCmd": "node scripts/build-design-sync.mjs"

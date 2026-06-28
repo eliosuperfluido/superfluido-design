@@ -22,7 +22,7 @@ canonical source (no single app to scan), utilities come from a **safelist** of
 the published token utilities — keep the safelist in `build-design-sync.mjs` in
 sync with the tokens in `index.css` when you add tokens.
 
-Project: https://claude.ai/design/p/6a0e7e54-d566-4e98-884b-e5529b62b4f4
+Project: https://claude.ai/design/p/f2e317f8-8470-42eb-9e24-76eefdf5ada8
 
 ## Re-sync (one command)
 
