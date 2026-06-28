@@ -7,9 +7,10 @@
   "style": "index.css",
   "exports": {
     ".": "./index.css",
-    "./index.css": "./index.css"
+    "./index.css": "./index.css",
+    "./assets/*": "./assets/*"
   },
-  "files": ["index.css", "fonts"],
+  "files": ["index.css", "fonts", "assets"],
   "keywords": ["design-system", "tailwind", "css"],
   "license": "UNLICENSED",
   "repository": {

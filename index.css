@@ -233,3 +233,34 @@
   vertical-align: text-bottom;
   animation: blink 1.1s step-end infinite;
 }
+
+/* ── Brand logos (monochrome, themeable) ──
+   Rendered as currentColor masks: set the colour with `color` and the size
+   with `height` (width follows via aspect-ratio). e.g.
+     <span class="logo-superfluido" style="color:#fff; height:2.5rem"></span>
+   The raw SVGs ship at @superfluido/design/assets/{superfluido,v-arc}.svg for
+   direct <img>/inline use. */
+.logo-superfluido,
+.logo-varc {
+  display: inline-block;
+  height: 2rem;
+  background-color: currentColor;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-size: contain;
+  mask-size: contain;
+}
+
+.logo-superfluido {
+  aspect-ratio: 1 / 1;
+  -webkit-mask-image: url("./assets/superfluido.svg");
+  mask-image: url("./assets/superfluido.svg");
+}
+
+.logo-varc {
+  aspect-ratio: 1024 / 886.6;
+  -webkit-mask-image: url("./assets/v-arc.svg");
+  mask-image: url("./assets/v-arc.svg");
+}

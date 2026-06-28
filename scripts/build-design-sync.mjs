@@ -50,6 +50,11 @@ writeFileSync(`${out}/_ds_bundle.css`, css);
 // compiled CSS resolves in the uploaded bundle.
 cpSync(`${repo}/fonts`, `${out}/fonts`, { recursive: true });
 
+// Brand logos: copy the SVGs so the mask-image url("./assets/…") in the
+// compiled CSS resolves in the uploaded bundle (and the design agent can use
+// the .logo-* classes).
+cpSync(`${repo}/assets`, `${out}/assets`, { recursive: true });
+
 const header = JSON.stringify({
   namespace: GLOBAL,
   components: [],

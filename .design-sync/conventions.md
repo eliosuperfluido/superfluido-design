@@ -83,6 +83,24 @@ e.g. `text-primary`, `bg-dim`, `border-accent`. Pure white when needed: `text-wh
   `face-back` / `face-left` / `face-right` / `face-top` / `face-bottom`) in a `cube-scene`.
 - `ring` — absolutely-positioned concentric ring (size it yourself).
 
+## Brand logos
+
+Two monochrome marks, rendered as **currentColor masks** — set colour with
+`color`/`text-*` and size with `height` (width follows automatically):
+
+| Class | Mark | Aspect |
+|---|---|---|
+| `logo-superfluido` | Superfluido | 1:1 |
+| `logo-varc` | V-ARC | ~1024:887 |
+
+```jsx
+<span className="logo-superfluido text-accent" style={{ height: "2.5rem" }} />
+```
+
+They inherit the accent like any colour utility (gold on productions, white
+elsewhere). Raw SVGs are also at `@superfluido/design/assets/{superfluido,v-arc}.svg`
+for direct `<img>`/inline use.
+
 ## Where the truth lives
 
 Read `styles.css` (and the `_ds_bundle.css` it imports) for the exact token
