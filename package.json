@@ -1,0 +1,27 @@
+{
+  "name": "@superfluido/design",
+  "version": "1.0.0",
+  "description": "Superfluido shared design system — tokens, utilities, and base styles. Shared across all Superfluido repos; the brand accent (--color-accent) is overridden per repo.",
+  "type": "module",
+  "main": "index.css",
+  "style": "index.css",
+  "exports": {
+    ".": "./index.css",
+    "./index.css": "./index.css"
+  },
+  "files": ["index.css"],
+  "keywords": ["design-system", "tailwind", "css"],
+  "license": "UNLICENSED",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eliosuperfluido/superfluido-design.git"
+  },
+  "scripts": {
+    "design-sync": "node scripts/build-design-sync.mjs"
+  },
+  "devDependencies": {
+    "@tailwindcss/node": "^4.2.1",
+    "@tailwindcss/oxide": "^4.2.1",
+    "tailwindcss": "^4.2.1"
+  }
+}
