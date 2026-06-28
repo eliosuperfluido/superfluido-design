@@ -26,9 +26,9 @@ In your Tailwind v4 CSS entry:
 @theme { --color-accent: #C8B89A; }
 ```
 
-That gives you the shared tokens and utilities (`text-text-*`, `font-display`,
-`animate-fade-up`, `btn-micro`, …) with this repo's accent applied to every
-`accent` utility.
+That gives you the shared tokens and utilities (`text-primary`, `font-display`,
+`font-mono`, `animate-fade-up`, `btn-micro`, …) with this repo's accent applied
+to every `accent` utility. Fonts (Geist, JetBrains Mono) are self-hosted.
 
 ## Tokens & vocabulary
 

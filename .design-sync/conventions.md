@@ -16,6 +16,7 @@ identical between repos **except the brand accent**, which each repo overrides.
   surface or it will look wrong.
 - No provider/wrapper component — just ensure `styles.css` is loaded.
 - In a Tailwind v4 project: `@import "tailwindcss";` then `@import "@superfluido/design";`.
+- Fonts (Geist, JetBrains Mono) are **self-hosted** in the package — no CDN.
 
 ## The per-repo accent
 
@@ -37,23 +38,24 @@ start color, and the `cursor-blink` color.
 Style with Tailwind utility classes generated from the design tokens. **Use
 these token names, do not invent your own.**
 
-### Text colors (also available as `bg-*` and `border-*`)
+### Colors (each available as `text-*`, `bg-*`, `border-*`)
 
-| Class | Value | Use |
+| Token | Value | Use |
 |---|---|---|
-| `text-text-primary` | `#d4d4d4` | body text |
-| `text-text-secondary` | `#a3a3a3` | secondary text |
-| `text-text-muted` | `#737373` | muted / captions |
-| `text-text-dim` | `#505050` | dimmest labels |
-| `text-text-accent` | `#ffffff` | emphasis (neutral, shared) |
-| `text-accent` | `var(--color-accent)` | **brand accent — per-repo** |
+| `primary` | `#d4d4d4` | body text |
+| `secondary` | `#a3a3a3` | secondary text |
+| `muted` | `#737373` | muted / captions |
+| `dim` | `#505050` | dimmest labels / hairlines |
+| `accent` | per-repo (default `#ffffff`) | **brand accent** |
+
+e.g. `text-primary`, `bg-dim`, `border-accent`. Pure white when needed: `text-white`.
 
 ### Fonts
 
-| Class | Stack |
+| Class | Family |
 |---|---|
-| `font-display` / `font-grotesk` | system sans (`SF Pro Display`, Segoe UI, Roboto, …) |
-| `font-mono` / `font-inter` | **monospace** (`SF Mono`, Menlo, Monaco, …) — note `font-inter` is a mono stack |
+| `font-display` | **Geist** (display / headings) |
+| `font-mono` | **JetBrains Mono** (mono / technical / body) |
 
 ### Tracking & easing
 
@@ -89,11 +91,11 @@ values and class definitions before styling.
 ## Example
 
 ```jsx
-<section className="font-display">
-  <h1 className="font-display tracking-heading text-text-accent text-5xl animate-fade-up">
+<section className="font-mono">
+  <h1 className="font-display tracking-heading text-accent text-5xl animate-fade-up">
     Superfluido
   </h1>
-  <p className="font-mono text-text-secondary mt-4">
+  <p className="text-secondary mt-4">
     System online<span className="cursor-blink" />
   </p>
   <button className="btn-micro border border-accent text-accent px-5 py-2 mt-6">

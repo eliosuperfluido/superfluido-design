@@ -9,7 +9,7 @@
     ".": "./index.css",
     "./index.css": "./index.css"
   },
-  "files": ["index.css"],
+  "files": ["index.css", "fonts"],
   "keywords": ["design-system", "tailwind", "css"],
   "license": "UNLICENSED",
   "repository": {

@@ -12,23 +12,75 @@
 
    That repoints every `accent` utility (text-accent / bg-accent / border-accent)
    and any var(--color-accent) reference. Default accent is white (monochrome).
+
+   Fonts are self-hosted (woff2 in ./fonts) — no external CDN.
+   Display: Geist.  Mono / technical: JetBrains Mono.
 ───────────────────────────────────────────────────────────────────────────── */
 
+/* ── Self-hosted fonts ── */
+@font-face {
+  font-family: "Geist";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("./fonts/geist-400.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Geist";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("./fonts/geist-500.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Geist";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("./fonts/geist-600.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Geist";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("./fonts/geist-700.woff2") format("woff2");
+}
+@font-face {
+  font-family: "JetBrains Mono";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("./fonts/jetbrains-mono-400.woff2") format("woff2");
+}
+@font-face {
+  font-family: "JetBrains Mono";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("./fonts/jetbrains-mono-500.woff2") format("woff2");
+}
+@font-face {
+  font-family: "JetBrains Mono";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("./fonts/jetbrains-mono-700.woff2") format("woff2");
+}
+
 @theme {
-  /* ── Text Colors (shared across all repos) ── */
-  --color-text-primary: #d4d4d4;
-  --color-text-secondary: #a3a3a3;
-  --color-text-muted: #737373;
-  --color-text-dim: #505050;
-  --color-text-accent: #ffffff;
+  /* ── Text colors (shared across all repos) ── */
+  --color-primary: #d4d4d4;
+  --color-secondary: #a3a3a3;
+  --color-muted: #737373;
+  --color-dim: #505050;
 
   /* ── Brand accent (PER-REPO — override in the consumer) ── */
   --color-accent: #ffffff;
 
-  --font-display: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, sans-serif;
-  --font-grotesk: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, sans-serif;
-  --font-inter: "SF Mono", Menlo, Monaco, Consolas, "Courier New", monospace;
-  --font-mono: "SF Mono", Menlo, Monaco, Consolas, "Courier New", monospace;
+  /* ── Fonts ── */
+  --font-display: "Geist", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, Monaco, Consolas, "Courier New", monospace;
 
   --tracking-heading: -0.02em;
 

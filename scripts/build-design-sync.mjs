@@ -13,7 +13,7 @@
 // Output:  ds-bundle/               (gitignored; re-create any time)
 
 import { compile } from '@tailwindcss/node';
-import { mkdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
+import { cpSync, mkdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -28,13 +28,12 @@ const { build } = await compile(input, { base: repo, onDependency: () => {} });
 // Safelist = the design system's published token-derived utilities. Tailwind
 // tree-shakes unused utilities, so without this the published API wouldn't ship.
 // Keep in sync with the tokens in index.css.
-const textColors = ['text-primary', 'text-secondary', 'text-muted', 'text-dim', 'text-accent'];
+const colors = ['primary', 'secondary', 'muted', 'dim', 'accent'];
 const safelist = [
-  // --color-text-* group  →  text-text-* / bg-text-* / border-text-*
-  ...textColors.flatMap((c) => [`text-${c}`, `bg-${c}`, `border-${c}`]),
-  // --color-accent (per-repo brand accent) → text/bg/border/ring/outline-accent
-  'text-accent', 'bg-accent', 'border-accent', 'ring-accent', 'outline-accent',
-  'font-display', 'font-grotesk', 'font-inter', 'font-mono',
+  // --color-* group  →  text-* / bg-* / border-*  (accent also ring/outline)
+  ...colors.flatMap((c) => [`text-${c}`, `bg-${c}`, `border-${c}`]),
+  'ring-accent', 'outline-accent',
+  'font-display', 'font-mono',
   'tracking-heading',
   'ease-micro',
   'animate-rotate-cube', 'animate-pulse-ring', 'animate-scan-line', 'animate-fade-up',
@@ -46,6 +45,10 @@ rmSync(out, { recursive: true, force: true });
 mkdirSync(out, { recursive: true });
 
 writeFileSync(`${out}/_ds_bundle.css`, css);
+
+// Self-hosted fonts: copy woff2 so the @font-face url("./fonts/…") in the
+// compiled CSS resolves in the uploaded bundle.
+cpSync(`${repo}/fonts`, `${out}/fonts`, { recursive: true });
 
 const header = JSON.stringify({
   namespace: GLOBAL,

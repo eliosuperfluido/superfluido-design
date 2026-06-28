@@ -35,16 +35,32 @@ Then upload `ds-bundle/` to the Claude Design project (see /design-sync skill,
 upload section). No `_ds_sync.json` anchor is written (off-script layout) — re-syncs
 re-verify from scratch, trivial here since there are no components.
 
+## Token scheme (clean, v1.1)
+
+Colors use single-word names: `--color-{primary,secondary,muted,dim,accent}` →
+`text-primary`/`bg-primary`/`border-primary` etc. (NOT the old `--color-text-*` /
+`text-text-*`). Fonts: `--font-display` = Geist, `--font-mono` = JetBrains Mono.
+Dropped `--font-grotesk` and `--font-inter` (unused, the latter was a mis-named
+mono alias).
+
+## Fonts (self-hosted)
+
+Geist (400/500/600/700) and JetBrains Mono (400/500/700) ship as woff2 in
+`fonts/`, wired via `@font-face` in `index.css` with relative `url("./fonts/…")`.
+No Google CDN (GDPR — Swiss/EU sites). `package.json` `files` includes `fonts`.
+The design-sync build copies `fonts/` into `ds-bundle/` so the `@font-face` urls
+resolve in the Claude Design upload (add `fonts/**` to the upload plan writes).
+
+To add weights/families: drop the woff2 in `fonts/`, add an `@font-face`, update
+the family stack token. Source: `@fontsource/<family>` on jsDelivr.
+
 ## Re-sync risks (watch-list)
 
 - **Safelist drift**: new tokens in `index.css` need matching safelist entries in
   `build-design-sync.mjs`, or their utilities silently won't ship.
-- **`font-inter` is a monospace stack** (legacy naming). Documented honestly in
-  conventions.md — don't "fix" the header without fixing the source token.
+- **No nested `/* */` in `index.css` comments.** CSS comments don't nest — an
+  inner `*/` closes the block early and silently voids the entire `@theme`.
 - **Accent**: the Claude Design bundle ships the DEFAULT accent (white). Per-repo
   accents live in the consumer repos, not here.
 - **Dark canvas assumption**: tokens are tuned for `#0a0a0a`.
-- **No nested `/* */` in `index.css` comments.** CSS comments don't nest — an
-  inner `*/` closes the block early and silently voids the entire `@theme`
-  (utilities stop generating while vars still emit, so it's easy to miss). The
-  big header comment uses `<- like this` instead of inline `/* */` examples.
+- **Font files are binary in git.** ~200 KB total; fine, but keep weights lean.
