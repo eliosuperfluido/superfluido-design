@@ -85,32 +85,36 @@ e.g. `text-primary`, `bg-dim`, `border-accent`. Pure white when needed: `text-wh
 
 ## Brand logos
 
-Monochrome marks, rendered as **currentColor masks** — set colour with
-`color`/`text-*` and size with `height` (width follows automatically):
+**Line-art marks** are themeable `currentColor` masks — set colour with
+`color`/`text-*`, size with `height` (width follows):
 
 | Class | Mark | Use | Aspect |
 |---|---|---|---|
-| `logo-superfluido` | Superfluido — full maze | **≥ 32px** (headers, hero) | 1:1 |
-| `logo-superfluido-mark` | Superfluido — S-in-circle | **< 32px** (favicons, tight nav) | 1:1 |
+| `logo-superfluido` | Superfluido — maze lines + faint circle/S | **≥ 32px** (headers, hero) | 1:1 |
 | `logo-varc` | V-ARC | any size | ~1024:887 |
 
-**Size rule:** the full Superfluido maze turns to mush below ~32px — use
-`logo-superfluido-mark` (the simplified S-in-circle) at small sizes instead.
-V-ARC's fractal holds up at any size.
-
 ```jsx
-<span className="logo-superfluido text-accent" style={{ height: "2.5rem" }} />   {/* large */}
-<span className="logo-superfluido-mark" style={{ height: "20px" }} />            {/* small */}
+<span className="logo-superfluido text-accent" style={{ height: "2.5rem" }} />
 ```
 
-They inherit the accent like any colour utility (gold on productions, white
-elsewhere). Raw SVGs ship at
-`@superfluido/design/assets/{superfluido,superfluido-mark,v-arc}.svg` for direct
-`<img>`/inline use.
+**The small S-in-circle mark is TWO-TONE** (light disc + dark S), so it is *not* a
+currentColor mask — use it as a raw image: `assets/superfluido-mark.svg`
+(= `assets/favicon.svg`). It's **adaptive** (light disc/dark S on dark themes,
+inverted on light) via `prefers-color-scheme`. Use **< 32px / as favicon** — the
+maze logo turns to mush that small.
 
-**Favicons** (browser tab): `assets/favicon.svg` (Superfluido, knockout S-in-circle)
-and `assets/v-arc-favicon.svg` (V-ARC). Both are **self-adaptive** — one file,
-white on dark tabs / black on light tabs via `prefers-color-scheme`.
+```jsx
+<img src=".../assets/superfluido-mark.svg" style={{ height: 20 }} />   {/* small */}
+```
+
+**Favicons** (browser tab): `assets/favicon.svg` (Superfluido) and
+`assets/v-arc-favicon.svg` (V-ARC) — self-adaptive light/dark.
+
+**All explicit variants** ship under `assets/logos/` for fixed-colour needs or
+contexts where the adaptive flip isn't honoured:
+`sf-{bow,wob}[-hc|-simple|-transparent].svg`, `v-arc-{bow,wob}.svg`
+(**bow** = black-on-white / light bg, **wob** = white-on-black / dark bg;
+`-hc` high-contrast, `-simple` S-in-circle, `-transparent` lines + 5% circle/S ghost).
 
 ## Where the truth lives
 
