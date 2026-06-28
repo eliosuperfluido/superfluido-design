@@ -106,7 +106,11 @@ V-ARC's fractal holds up at any size.
 They inherit the accent like any colour utility (gold on productions, white
 elsewhere). Raw SVGs ship at
 `@superfluido/design/assets/{superfluido,superfluido-mark,v-arc}.svg` for direct
-`<img>`/inline/favicon use.
+`<img>`/inline use.
+
+**Favicons** (browser tab): `assets/favicon.svg` (Superfluido, knockout S-in-circle)
+and `assets/v-arc-favicon.svg` (V-ARC). Both are **self-adaptive** — one file,
+white on dark tabs / black on light tabs via `prefers-color-scheme`.
 
 ## Where the truth lives
 
