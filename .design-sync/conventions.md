@@ -85,21 +85,28 @@ e.g. `text-primary`, `bg-dim`, `border-accent`. Pure white when needed: `text-wh
 
 ## Brand logos
 
-Two monochrome marks, rendered as **currentColor masks** — set colour with
+Monochrome marks, rendered as **currentColor masks** — set colour with
 `color`/`text-*` and size with `height` (width follows automatically):
 
-| Class | Mark | Aspect |
-|---|---|---|
-| `logo-superfluido` | Superfluido | 1:1 |
-| `logo-varc` | V-ARC | ~1024:887 |
+| Class | Mark | Use | Aspect |
+|---|---|---|---|
+| `logo-superfluido` | Superfluido — full maze | **≥ 32px** (headers, hero) | 1:1 |
+| `logo-superfluido-mark` | Superfluido — S-in-circle | **< 32px** (favicons, tight nav) | 1:1 |
+| `logo-varc` | V-ARC | any size | ~1024:887 |
+
+**Size rule:** the full Superfluido maze turns to mush below ~32px — use
+`logo-superfluido-mark` (the simplified S-in-circle) at small sizes instead.
+V-ARC's fractal holds up at any size.
 
 ```jsx
-<span className="logo-superfluido text-accent" style={{ height: "2.5rem" }} />
+<span className="logo-superfluido text-accent" style={{ height: "2.5rem" }} />   {/* large */}
+<span className="logo-superfluido-mark" style={{ height: "20px" }} />            {/* small */}
 ```
 
 They inherit the accent like any colour utility (gold on productions, white
-elsewhere). Raw SVGs are also at `@superfluido/design/assets/{superfluido,v-arc}.svg`
-for direct `<img>`/inline use.
+elsewhere). Raw SVGs ship at
+`@superfluido/design/assets/{superfluido,superfluido-mark,v-arc}.svg` for direct
+`<img>`/inline/favicon use.
 
 ## Where the truth lives
 

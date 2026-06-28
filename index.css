@@ -238,9 +238,15 @@
    Rendered as currentColor masks: set the colour with `color` and the size
    with `height` (width follows via aspect-ratio). e.g.
      <span class="logo-superfluido" style="color:#fff; height:2.5rem"></span>
-   The raw SVGs ship at @superfluido/design/assets/{superfluido,v-arc}.svg for
-   direct <img>/inline use. */
+
+   Superfluido has two marks:
+     · logo-superfluido       full maze mark — use at ≥ 32px (headers, hero)
+     · logo-superfluido-mark  simplified S-in-circle — use < 32px (favicons,
+                              tight nav); the full maze turns to mush small.
+   The raw SVGs ship at @superfluido/design/assets/{superfluido,superfluido-mark,v-arc}.svg
+   for direct <img>/inline/favicon use. */
 .logo-superfluido,
+.logo-superfluido-mark,
 .logo-varc {
   display: inline-block;
   height: 2rem;
@@ -257,6 +263,12 @@
   aspect-ratio: 1 / 1;
   -webkit-mask-image: url("./assets/superfluido.svg");
   mask-image: url("./assets/superfluido.svg");
+}
+
+.logo-superfluido-mark {
+  aspect-ratio: 1 / 1;
+  -webkit-mask-image: url("./assets/superfluido-mark.svg");
+  mask-image: url("./assets/superfluido-mark.svg");
 }
 
 .logo-varc {
