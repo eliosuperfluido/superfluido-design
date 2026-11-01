@@ -72,7 +72,11 @@
   /* ── Text colors (shared across all repos) ── */
   --color-primary: #d4d4d4;
   --color-secondary: #a3a3a3;
-  --color-muted: #737373;
+  /* #808080 (was #737373 until v1.6.0): readable text on the dark canvas
+     needs WCAG AA 4.5:1; #737373 measured 4.2:1 on #0a0a0a and 3.9:1 on
+     #141414 panels, #808080 gives 5.0:1 and 4.7:1. Readable text uses muted
+     or brighter; dim is for hairlines and decoration only. */
+  --color-muted: #808080;
   --color-dim: #505050;
 
   /* ── Brand accent (PER-REPO — override in the consumer) ── */

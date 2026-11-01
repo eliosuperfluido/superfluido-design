@@ -44,7 +44,7 @@ these token names, do not invent your own.**
 |---|---|---|
 | `primary` | `#d4d4d4` | body text |
 | `secondary` | `#a3a3a3` | secondary text |
-| `muted` | `#737373` | muted / captions |
+| `muted` | `#808080` | muted / captions (the dimmest grey for readable text: 4.5:1 on the dark canvas; `#737373` before v1.6.0) |
 | `dim` | `#505050` | dimmest labels / hairlines |
 | `accent` | per-repo (default `#ffffff`) | **brand accent** |
 
